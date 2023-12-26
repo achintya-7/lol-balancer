@@ -36,7 +36,7 @@ func (s *ServerPool) GetNextPeer() *backend.Backend {
 	next := s.NextIndex()
 
 	// now we have to traverse the backends array
-	// and find the next active peer starting from the next index
+	// and find the available active peer starting from the index next
 	totalLength := len(s.backends)
 	for i := 0; i < totalLength; i++ {
 		index := int((i + int(next)) % totalLength)
@@ -52,6 +52,7 @@ func (s *ServerPool) GetNextPeer() *backend.Backend {
 		}
 	}
 
+	log.Println("No backend server available")
 	return nil
 }
 

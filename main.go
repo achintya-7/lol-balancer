@@ -60,6 +60,9 @@ func loadBalancer(w http.ResponseWriter, r *http.Request, serverpool *serverpool
 
 // * A passive health check where we check the health of the backends every 20 seconds
 func healthCheck(serverpool *serverpool.ServerPool) {
+	// initial health check
+	serverpool.HealthCheck()
+	
 	t := time.NewTicker(time.Second * 20)
 	for range t.C {
 		log.Println("Starting health check...")
