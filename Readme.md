@@ -11,7 +11,7 @@ To test it locally, you can run the following commands from the Makefile to buil
 make test_server
 make lb
 ```
-The above commands will start 2 dummy servers on ports `3000` and `3001` and the load balancer on port `2205`. You can then send requests to the load balancer on port 8080 and it will distribute the load between the 2 servers.
+The above commands will start 2 dummy servers on ports `3000` and `3001` and the load balancer on port `2205`. You can then send requests to the load balancer on port 2205 and it will distribute the load between the 2 servers.
 To call the api, you can use the following command:
 ```bash
 curl localhost:2205
